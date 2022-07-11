@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agencia;
 use Illuminate\Http\Request;
 
 class AgenciaController extends Controller
@@ -13,7 +14,7 @@ class AgenciaController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Agencia::all());
     }
 
     /**

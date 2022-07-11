@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/propiedades', [\App\Http\Controllers\PropiedadController::class, 'index']);
+Route::post('/propiedades', [\App\Http\Controllers\PropiedadController::class, 'store']);
+Route::post('/propiedades-actualizar', [\App\Http\Controllers\PropiedadController::class, 'update']);
+Route::post('/propiedades-eliminar', [\App\Http\Controllers\PropiedadController::class, 'destroy']);
 Route::get('/propiedades-home', [\App\Http\Controllers\PropiedadController::class, 'indexHome']);
 Route::get('/agentes', [\App\Http\Controllers\AgenteController::class, 'index']);
-Route::get('/agencias');
 Route::get('/posts-home', [\App\Http\Controllers\PostController::class, 'indexHome']);
 Route::get('/tipos-propiedad', [\App\Http\Controllers\TipoPropiedadController::class, 'index']);
+Route::get('/agencias', [\App\Http\Controllers\AgenciaController::class, 'index']);
+Route::get('/categorias', [\App\Http\Controllers\CategopriaPropiedadController::class, 'index']);

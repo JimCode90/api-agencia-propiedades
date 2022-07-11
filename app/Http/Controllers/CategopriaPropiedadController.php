@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaPropiedad;
 use Illuminate\Http\Request;
 
 class CategopriaPropiedadController extends Controller
@@ -13,7 +14,7 @@ class CategopriaPropiedadController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(CategoriaPropiedad::all());
     }
 
     /**
@@ -34,7 +35,7 @@ class CategopriaPropiedadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

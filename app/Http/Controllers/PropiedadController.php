@@ -42,7 +42,29 @@ class PropiedadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resp = Propiedad::create([
+            'id_tipo_propiedad' => $request->tipo,
+            'id_categoria_propiedad' => $request->categoria,
+            'id_agencia' => $request->agencia,
+            'nombre' => $request->nombre,
+            'precio' => $request->precio,
+            'descripcion' => $request->descripcion,
+            'direccion' => $request->direccion,
+            'lat' => $request->lat,
+            'lng' => $request->lng,
+            'nro_dormitorios' => $request->dormitorios,
+            'nro_bathroom' => $request->banios,
+            'nro_garage' => $request->garages,
+            'area' => $request->area,
+            'imagen' => "https://via.placeholder.com/270x225"
+        ]);
+
+        if ($resp){
+            return response()->json(["status" => 200]);
+        }else{
+            return response()->json(["status" => 500]);
+        }
+
     }
 
     /**
@@ -74,9 +96,30 @@ class PropiedadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $resp = Propiedad::where('id', $request->id)->update([
+            'id_tipo_propiedad' => $request->tipo,
+            'id_categoria_propiedad' => $request->categoria,
+            'id_agencia' => $request->agencia,
+            'nombre' => $request->nombre,
+            'precio' => $request->precio,
+            'descripcion' => $request->descripcion,
+            'direccion' => $request->direccion,
+            'lat' => $request->lat,
+            'lng' => $request->lng,
+            'nro_dormitorios' => $request->dormitorios,
+            'nro_bathroom' => $request->banios,
+            'nro_garage' => $request->garages,
+            'area' => $request->area,
+            'imagen' => "https://via.placeholder.com/270x225"
+        ]);
+
+        if ($resp){
+            return response()->json(["status" => 200]);
+        }else{
+            return response()->json(["status" => 500]);
+        }
     }
 
     /**
@@ -85,8 +128,10 @@ class PropiedadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $propiedad = Propiedad::find($request->id);
+        $propiedad->delete();
+        return response()->json(["status" => 200]);
     }
 }
