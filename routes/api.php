@@ -28,3 +28,4 @@ Route::get('/posts-home', [\App\Http\Controllers\PostController::class, 'indexHo
 Route::get('/tipos-propiedad', [\App\Http\Controllers\TipoPropiedadController::class, 'index']);
 Route::get('/agencias', [\App\Http\Controllers\AgenciaController::class, 'index']);
 Route::get('/categorias', [\App\Http\Controllers\CategopriaPropiedadController::class, 'index']);
+//Ultimos cambios hacia git
